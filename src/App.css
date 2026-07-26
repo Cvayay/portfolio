@@ -1,50 +1,38 @@
 /*=============== FONTS ===============*/
-/* Importing 'Inter' for that clean tech look and 'Caveat' for the handwriting */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 4rem;
-
-  /*========== Colors - Warm Designer Palette ==========*/
-  --title-color: #3d3d3d;
-  --title-color-dark: #1a1a1a;
-  --text-color: #575757;
-  --body-color: #faf9f6; /* Soft cream background */
-  --container-color: #fff;
-  --accent-color: #efb08c; /* Shreya's signature peach/tan */
-  --accent-color-light: #fdf5f0;
-
-  /*========== Font and typography ==========*/
+  --title-color: #f5f3ef;
+  --title-color-dark: #c92b2b;
+  --text-color: #b9b5ae;
+  --body-color: #101010;
+  --container-color: #181818;
+  --accent-color: #c92b2b;
+  --accent-color-light: #3a1717;
   --body-font: 'Inter', sans-serif;
   --handwriting-font: 'Caveat', cursive;
-
-  --big-font-size: 5rem; 
+  --big-font-size: 5rem;
   --h1-font-size: 2.25rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
   --normal-font-size: 1rem;
   --small-font-size: 0.875rem;
   --smaller-font-size: 0.813rem;
-
-  /*========== Font weight ==========*/
   --font-normal: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
   --font-bold: 700;
-
-  /*========== Spacing ==========*/
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
   --mb-1: 1rem;
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
   --mb-3: 3rem;
-
   --z-fixed: 100;
 }
 
-/* Responsive typography */
 @media screen and (max-width: 992px) {
   :root {
     --big-font-size: 3.5rem;
@@ -94,9 +82,8 @@ img {
   display: block;
 }
 
-/*=============== REUSABLE CLASSES ===============*/
 .section {
-  padding: 10rem 0 2rem; /* Much more vertical breathing room */
+  padding: 10rem 0 2rem;
 }
 
 .section__title {
@@ -114,9 +101,8 @@ img {
   margin-bottom: var(--mb-3);
 }
 
-/*=============== LAYOUT ===============*/
 .container {
-  max-width: 1140px; /* Slightly wider for a modern feel */
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.5rem;
@@ -127,14 +113,13 @@ img {
   gap: 2rem;
 }
 
-/*=============== BUTTONS ===============*/
 .button {
   display: inline-flex;
   align-items: center;
-  background-color: var(--title-color);
+  background-color: var(--accent-color);
   color: #fff;
   padding: 1rem 2rem;
-  border-radius: 50px; /* Fully rounded buttons */
+  border-radius: 50px;
   font-weight: var(--font-medium);
   transition: 0.3s ease;
   gap: 0.5rem;
@@ -146,13 +131,21 @@ img {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Custom Selection Color */
+.button--ghost {
+  background: transparent;
+  border: 1px solid rgba(245, 243, 239, 0.3);
+  color: var(--title-color);
+}
+
+.button--ghost:hover {
+  background: rgba(245, 243, 239, 0.08);
+}
+
 ::selection {
   background-color: var(--accent-color);
   color: white;
 }
 
-/*=============== BREAKPOINTS ===============*/
 @media screen and (max-width: 768px) {
   .section {
     padding: 6rem 0 3rem;

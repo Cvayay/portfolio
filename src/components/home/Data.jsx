@@ -1,66 +1,59 @@
-
 /* =============== NAVIGATION LINKS =============== */
 export const navLinks = [
-    { name: "Work", hash: "#home" },
+    { name: "Home", hash: "#home" },
     { name: "About", hash: "#about" },
-    { name: "Skills", hash: "#skills" },
+    { name: "Projects", hash: "#portfolio" },
     { name: "Contact", hash: "#contact" },
 ];
 
 /* =============== HOME / HERO DATA =============== */
 export const homeData = {
+    greeting: "Hello, I’m",
     firstName: "SHIVAJI",
     lastName: "SAHANI",
-    subtitle: "DEVELOPER",
-    description: "Crafting innovative software solutions by merging creativity with technical expertise.",
-    location: "Based in India",
-    status: {
-        label: "Open to work",
-        value: "Freelance projects & full-time roles"
-    },
-    // These feed the "handwritten" notes in the collage
-    notes: [
-        { 
-            text: "code was my very first love – long before I had a name for it 💻", 
-            position: "top" 
-        },
-        { 
-            text: "that obsession quietly shaped me into a developer ✨", 
-            position: "bottom" 
-        }
+    roles: [
+        "SOFTWARE DEVELOPER",
+        "MS OFFICE & EXCEL",
+        "FIGMA UI / UX",
+        "NOTION EXPERT",
+        "POWER BI ANALYST"
     ],
-    captions: {
-        childhood: "where it all began",
-        current: "still that same curiosity"
-    }
+    tagline: "Builder • Problem solver • Lifelong learner",
+    description: "I create practical digital products that feel polished, useful, and built with intention.",
+    location: "Based in India",
+    stats: [
+        { label: "Projects built", value: "10+" },
+        { label: "Focus areas", value: "Java / React / Python" },
+        { label: "Mindset", value: "Design + engineering" },
+    ],
 };
 
 /* =============== ABOUT DATA =============== */
 export const aboutData = {
-    title: "Building digital experiences with a human touch.",
+    title: "Building digital experiences with clarity, purpose, and care.",
     description: [
-        "I’m a software developer based in India, a fresh MCA graduate with a deep-rooted curiosity for how systems function under the hood.",
-        "When I’m not debugging Java or tweaking Python scripts, I’m likely working on book fold art or exploring network-centric warfare tech. I believe the best software lives at the intersection of logic and art.",
+        "I’m a software developer from India with a strong foundation in Java, Python, React, and database-driven applications.",
+        "I enjoy creating products that feel simple on the surface but are crafted with careful engineering underneath. My goal is to build experiences that are useful, polished, and meaningful.",
     ],
-    note: "Always learning... 📚"
+    note: "Always learning, always building. 📚"
 };
 
 /* =============== SKILLS DATA =============== */
 export const skillsData = [
     {
-        title: "Technical Stack",
+        title: "Core Development",
         skills: [
-            { name: "Java (JavaFX)", level: "Advanced" },
+            { name: "Java / JavaFX", level: "Advanced" },
             { name: "Python", level: "Intermediate" },
             { name: "C / C++", level: "Intermediate" },
             { name: "SQLite / DBMS", level: "Advanced" },
         ]
     },
     {
-        title: "Web & Design",
+        title: "Web & Product",
         skills: [
             { name: "React.js", level: "Intermediate" },
-            { name: "CSS / Flexbox", level: "Advanced" },
+            { name: "CSS / UI Design", level: "Advanced" },
             { name: "Git / GitHub", level: "Intermediate" },
         ]
     }
@@ -70,29 +63,51 @@ export const skillsData = [
 export const projectsData = [
     {
         id: 1,
-        title: "Jewelry Billing System",
-        category: "Software",
-        description: "A custom JavaFX & SQLite application built for high-precision billing, automatic GST calculation, and loan tracking.",
-        image: "jewelry-billing.jpg", // Replace with your asset
-        link: "#"
+        title: "JewelleryERP",
+        category: ".NET / WPF",
+        description: "A desktop ERP for jewellery businesses with customer management, invoicing, role-based access, and SQLite-backed storage.",
+        link: "https://github.com/Cvayay/JewelleryERP",
+        tech: [".NET", "WPF", "SQLite"]
     },
     {
         id: 2,
-        title: "Defense Cyber Agency Roadmap",
-        category: "Research",
-        description: "A comprehensive analysis of India’s cyber defense strategies and network-centric warfare integration.",
-        image: "defense-project.jpg",
-        link: "#"
+        title: "Greatkart Ecommerce",
+        category: "Django",
+        description: "A full-stack ecommerce project with categories, carts, orders, product management, and admin workflows.",
+        link: "https://github.com/Cvayay/Greatkart-Ecommerce",
+        tech: ["Django", "HTML", "SQLite"]
+    },
+    {
+        id: 3,
+        title: "CampusFind",
+        category: "JavaScript / AI",
+        description: "A campus lost-and-found platform designed to help students recover missing items with a simple, helpful experience.",
+        link: "https://github.com/Cvayay/CampusFind-AI-Lost-Found",
+        tech: ["JavaScript", "AI", "UI/UX"]
+    },
+    {
+        id: 4,
+        title: "Minimal Note",
+        category: "Python",
+        description: "A focused note-taking application built around a calm and lightweight workflow for everyday writing.",
+        link: "https://github.com/Cvayay/minimal-note",
+        tech: ["Python", "CLI", "Productivity"]
+    },
+    {
+        id: 5,
+        title: "DSA HeatMap",
+        category: "Algorithms",
+        description: "A six-month daily LeetCode tracking project that visualizes consistency while strengthening problem-solving skills.",
+        link: "https://github.com/Cvayay/DSA-HeatMap",
+        tech: ["Algorithms", "Data Structures", "Consistency"]
     }
 ];
 
-const Data = () => {
-    return (
-        <div>
-            {/* You can leave this empty or put a summary here */}
-            <h2>Portfolio Data Loaded</h2>
-        </div>
-    );
+// FIX: Export all named exports from the bottom so other components don't crash
+export default {
+    navLinks,
+    homeData,
+    aboutData,
+    skillsData,
+    projectsData
 };
-
-export default Data;

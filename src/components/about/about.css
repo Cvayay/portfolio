@@ -1,99 +1,211 @@
+/*=============== ABOUT SECTION (DARK MODE ELEVATED) ===============*/
+
 .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 4rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* HEADER TYPOGRAPHY */
+.about__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.about__main-headline {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  color: var(--title-color, #ffffff);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 0.25rem;
+}
+
+.about__dots {
+  color: var(--text-color, #a1a1aa);
+  font-weight: 400;
+}
+
+/* Inline Color-Accented Badge Tag */
+.about__headline-badge {
+  display: inline-block;
+  background-color: var(--accent-color, #ff3366);
+  color: #ffffff;
+  padding: 0.15rem 0.85rem;
+  border-radius: 50px;
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(255, 51, 102, 0.35);
+  transform: rotate(-1deg);
+  vertical-align: middle;
+}
+
+/* SPLIT GRID LAYOUT */
+.about__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* LEFT COLUMN: PORTRAIT CARD & BACKDROP */
+.about__left-col {
+  display: flex;
+  justify-content: center;
+}
+
+.about__card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Offset Backdrop Accent Glow */
+.about__card-backdrop {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid var(--accent-color, #ff3366);
+  background: rgba(255, 51, 102, 0.05);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.about__card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--container-color, #101010);
+  border: 1px solid rgba(245, 243, 239, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.about__card-wrapper:hover .about__card {
+  transform: translate(-6px, -6px);
+  border-color: var(--accent-color, #ff3366);
+}
+
+.about__card-wrapper:hover .about__card-backdrop {
+  transform: translate(6px, 6px);
 }
 
 .about__img {
-    width: 350px;
-    border-radius: 1.5rem;
-    justify-self: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.about__info {
-    grid-template-columns: repeat(3, 140px);
-    gap: 0.5rem;
-    margin-bottom: var(--mb-2);
+/* Status Indicator Pill */
+.about__card-status {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(16, 16, 16, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 243, 239, 0.15);
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
-.about__box {
-    background-color: var(--container-color);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.75rem;
-    text-align: center;
-    padding: 1rem 1.25rem;
+.about__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e; /* Active green dot */
+  box-shadow: 0 0 8px #22c55e;
 }
 
-.about__icon {
-    font-size: 1.5rem;
-    color: var(--title-color);
-    margin-bottom: var(--mb-0-5);
+.about__status-text {
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--title-color, #ffffff);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.about__title {
-    font-size: var(--small-font-size);
-    font-weight: var(--font-medium);
+/* RIGHT COLUMN: NARRATIVE & TYPOGRAPHY */
+.about__right-col {
+  display: flex;
+  flex-direction: column;
 }
 
-.about__subtitle {
-    font-size: var(--tiny-font-size);
+.about__subheadline {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  color: var(--title-color, #ffffff);
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
 }
 
-.about__description {
-    padding: 0 4rem 0 0;
-    margin-bottom: var(--mb-2-5);
+.about__highlight {
+  color: var(--accent-color, #ff3366);
 }
 
-.about__box:hover {
-    transform: traslateY(-5px);
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.about__text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color, #a1a1aa);
+  margin-bottom: 1.15rem;
 }
-/*=============== BREAKPOINTS ===============*/
-/* For large devices */
+
+.about__text strong {
+  color: var(--title-color, #ffffff);
+  font-weight: 600;
+}
+
+.about__actions {
+  margin-top: 1rem;
+}
+
+/*=============== RESPONSIVE BREAKPOINTS ===============*/
+
 @media screen and (max-width: 992px) {
-    .about__container {
-        grid-template-columns: 1fr;
-        row-gap: 2.5rem;
-    }
-
-    .about__img {
-        width: 220px;
-    }
-
-    .about__box {
-        padding: 0.75rem 0.5rem;
-    }
-
-    .about__info {
-        text-align: center;
-    }
-
-    .about__info {
-        justify-content: center;
-    }
-
-    .about__description {
-        padding: 0 5rem;
-        margin-bottom: 2rem;
-    }
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  
-  /* For medium devices */
-  @media screen and (max-width: 576px) {
-    .about__info {
-        grid-template-columns: repeat(3, 1fr);
-    }
 
-    .about__description {
-        padding: 0;
-    }
+  .about__card-wrapper {
+    max-width: 310px;
   }
-  
-  /* For small devices */
-  @media screen and (max-width: 350px) {
-    .about__info {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
+  .about__card {
+    height: 390px;
   }
-  
+
+  .about__header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about__card {
+    height: 340px;
+  }
+
+  .about__main-headline {
+    font-size: 1.75rem;
+  }
+
+  .about__headline-badge {
+    font-size: 1.35rem;
+    padding: 0.1rem 0.65rem;
+  }
+
+  .about__text {
+    font-size: 0.925rem;
+  }
+}

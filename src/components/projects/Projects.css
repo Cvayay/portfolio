@@ -1,0 +1,122 @@
+.projects {
+	background: #101010;
+	color: #f5f3ef;
+}
+
+.projects .section__title {
+	color: #f5f3ef;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.projects .section__subtitle {
+	color: #c92b2b;
+}
+
+.projects__container {
+	grid-template-columns: 1fr;
+	gap: 0.85rem;
+	max-width: 920px;
+}
+
+.projects__card {
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 1.25rem 1.5rem;
+	background: #101010;
+	border: 1px solid rgba(245, 243, 239, 0.2);
+	border-radius: 0;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects__card:nth-child(odd) {
+	transform: translateX(-1.5rem) rotate(-1deg);
+}
+
+.projects__card:nth-child(even) {
+	transform: translateX(1.5rem) rotate(1deg);
+}
+
+.projects__card:hover {
+	transform: translateX(0) rotate(0);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
+}
+
+.projects__card-topline {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 0.8rem;
+	border-bottom: 1px solid rgba(245, 243, 239, 0.2);
+}
+
+.projects__number {
+	color: #b9b5ae;
+	font-size: var(--small-font-size);
+	font-weight: var(--font-bold);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.projects__arrow {
+	color: #c92b2b;
+	font-size: 1.35rem;
+}
+
+.projects__content {
+	padding: 1.2rem 0 1rem;
+}
+
+.projects__title {
+	margin-bottom: 0.75rem;
+	font-size: var(--h2-font-size);
+	color: #f5f3ef;
+}
+
+.projects__description {
+	max-width: 32rem;
+	color: #b9b5ae;
+	font-size: var(--small-font-size);
+	margin-bottom: 0.9rem;
+}
+
+.projects__tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.projects__tech-item {
+	padding: 0.35rem 0.7rem;
+	border: 1px solid rgba(245, 243, 239, 0.2);
+	border-radius: 999px;
+	font-size: 0.72rem;
+	color: #f5f3ef;
+}
+
+.projects__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	align-self: flex-start;
+	color: #f5f3ef;
+	font-size: var(--small-font-size);
+	font-weight: var(--font-semi-bold);
+}
+
+.projects__link-icon {
+	color: #c92b2b;
+}
+
+@media screen and (max-width: 768px) {
+	.projects__card {
+		padding: 1rem;
+	}
+
+	.projects__card:nth-child(odd),
+	.projects__card:nth-child(even) {
+		transform: none;
+	}
+}

@@ -1,42 +1,53 @@
 import React from 'react';
-import "./footer.css";
+import './footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-        <div className="footer__container container">
-            <h1 className="footer__title">shivaय</h1>
+    <footer className="footer-minimal">
+      <div className="footer-minimal__container container">
+        
+        {/* TOP TAG */}
+        {/* <div className="footer-minimal__tag">
+          // Available for global roles / Probably tweaking this footer again
+        </div> */}
 
-            <ul className="footer__list">
-                <li>
-                    <a href="#about" className="footer__link">About</a>
-                </li>
+        {/* MAIN HEADLINE */}
+        <h2 className="footer-minimal__headline">
+          That's the work.<br />
+          Here's the <span className="footer-minimal__faded">awkward</span><br />
+          reaching out part.
+        </h2>
 
-                <li>
-                    <a href="#portfolio" className="footer__link">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#testimonials" className="footer__link">Testimonials</a>
-                </li>
-            </ul>
-
-            <div className="footer__social">
-            <a href="" className="footer__social-link" target='_blank'>
-        <i class="bx bxl-instagram"></i>
-            </a>
-        <a href="" className="footer__social-link" target='_blank'>
-        <i class="bx bxl-github"></i>    
-            </a>
-        <a href="" className="footer__social-link" target='_blank'>
-        <i class="bx bxl-linkedin"></i>   
-            </a>
-            </div>
-
-           <span className="footer__copy">&#169; 2024 Cvay. All rights reserved</span> 
+        {/* ACTION BAR */}
+        <div className="footer-minimal__actions">
+          <a href="mailto:shivajisahani01@gmail.com" className="footer-btn footer-btn--primary">
+            Drop an Email
+          </a>
+          <a href="/Shivaji_Sahani_CV.docx" download className="footer-btn footer-btn--outline">
+            Download resume ↓
+          </a>
+          <a href="https://github.com/Cvayay" target="_blank" rel="noreferrer" className="footer-btn footer-btn--outline">
+            GitHub ↗
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="footer-btn footer-btn--outline">
+            LinkedIn ↗
+          </a>
         </div>
-    </footer>
-  )
-}
 
-export default Footer
+        {/* SUB-FOOTER BAR */}
+        <div className="footer-minimal__bottom">
+          <div className="footer-minimal__status">
+            <span className="status-dot"></span>
+            <span>Online</span>
+          </div>
+          <div className="footer-minimal__credits">
+            Built by Shivaji | No templates were harmed.
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

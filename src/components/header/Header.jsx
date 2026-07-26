@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { navLinks } from "../home/Data"; // Importing your data
+import { navLinks } from "../home/Data"; 
 import "./header.css";
-// import { homeData } from './Data'; // Use the specific named export you need
+
 const Header = () => {
     /* =============== Change Background Header =============== */
     const [scrollHeader, setScrollHeader] = useState(false);
@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <header className={scrollHeader ? "header scroll-header" : "header"}>
             <nav className="nav container">
-                <a href="index.html" className="nav__logo">श</a>
+                <a href="#home" className="nav__logo">श</a>
 
                 <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list">
@@ -33,7 +33,7 @@ const Header = () => {
                                         href={link.hash} 
                                         onClick={() => {
                                             setActiveNav(link.hash);
-                                            showMenu(false); // Closes menu on click (Mobile)
+                                            showMenu(false); 
                                         }} 
                                         className={activeNav === link.hash ? "nav__link active-link" : "nav__link"}
                                     >
@@ -43,7 +43,6 @@ const Header = () => {
                             );
                         })}
                         
-                        {/* Separate Resume button to keep it styled differently */}
                         <li className="nav__item">
                             <a href="#resume" className="nav__link resume-btn">
                                 Resume

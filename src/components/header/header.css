@@ -4,32 +4,30 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: var(--z-fixed);
+    z-index: var(--z-fixed, 100);
     background-color: transparent;
     transition: 0.4s;
 }
 
 .nav {
-    height: calc(var(--header-height) + 1.5rem);
+    height: calc(var(--header-height, 3rem) + 1.5rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 1rem;
 }
 
-/* Logo - minimalist Hindi character */
 .nav__logo {
     font-size: 1.5rem;
-    font-weight: var(--font-semi-bold);
-    color: var(--title-color);
+    font-weight: var(--font-semi-bold, 600);
+    color: var(--title-color, #fff);
     transition: 0.3s;
 }
 
 .nav__logo:hover {
-    color: var(--accent-color);
+    color: var(--accent-color, #ff3b30);
 }
 
-/* Navigation List */
 .nav__list {
     display: flex;
     column-gap: 3rem;
@@ -39,14 +37,13 @@
 .nav__link {
     position: relative;
     font-size: 0.85rem;
-    font-weight: var(--font-medium);
-    color: var(--text-color);
+    font-weight: var(--font-medium, 500);
+    color: var(--text-color, #8e8e93);
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s;
 }
 
-/* The elegant underline from Shreya's video */
 .nav__link::after {
     content: '';
     position: absolute;
@@ -54,7 +51,7 @@
     height: 1.5px;
     bottom: -5px;
     left: 0;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color, #ff3b30);
     transition: 0.3s ease-in-out;
 }
 
@@ -65,34 +62,31 @@
 
 .nav__link:hover,
 .active-link {
-    color: var(--title-color-dark);
+    color: var(--title-color-dark, #fff);
 }
 
-/* Resume Button Styling */
 .resume-btn {
     padding: 0.6rem 1.4rem;
-    background-color: var(--title-color);
+    background-color: var(--accent-color, #ff3b30);
     color: #fff !important;
     border-radius: 50px;
     font-size: 0.75rem;
-    font-weight: var(--font-semi-bold);
+    font-weight: var(--font-semi-bold, 600);
     transition: 0.3s;
 }
 
 .resume-btn:hover {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color, #ff3b30);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(239, 176, 140, 0.3);
+    box-shadow: 0 4px 12px rgba(201, 43, 43, 0.3);
 }
 
-/* Change background on scroll */
 .scroll-header {
-    background-color: rgba(250, 249, 246, 0.85); /* Matches your body-color */
-    backdrop-filter: blur(12px);
+    background-color: rgba(16, 16, 16, 0.85);
+    backdrop-filter: blur(2px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Hide mobile elements by default */
 .nav__toggle, 
 .nav__close, 
 .nav__icon {
@@ -100,8 +94,6 @@
 }
 
 /*=============== BREAKPOINTS ===============*/
-
-/* For medium devices */
 @media screen and (max-width: 768px) {
     .header {
         top: 0;
@@ -109,15 +101,15 @@
     }
 
     .nav {
-        height: var(--header-height);
+        height: var(--header-height, 3.5rem);
     }
 
     .nav__menu {
         position: fixed;
-        top: -100%; /* Slide down from top */
+        top: -100vh; 
         left: 0;
         width: 100%;
-        background-color: var(--body-color);
+        background-color: var(--body-color, #0f0f11);
         padding: 5rem 1.5rem 3rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 2rem 2rem;
@@ -139,7 +131,7 @@
     .nav__close {
         display: block;
         font-size: 1.25rem;
-        color: var(--title-color);
+        color: var(--title-color, #fff);
         cursor: pointer;
     }
 
@@ -150,7 +142,6 @@
     }
 }
 
-/* For small devices */
 @media screen and (max-width: 350px) {
     .nav__menu {
         padding: 4rem 0.5rem 2.5rem;

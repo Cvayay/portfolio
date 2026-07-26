@@ -1,67 +1,149 @@
-.footer {
-    background-color: var(--container-color);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+/*=============== MODERN MINIMALIST FOOTER ===============*/
+
+.footer-minimal {
+  /* Using your global body/container background */
+  background-color: var(--body-color, #0a0a0c); 
+  color: var(--title-color);
+  padding: 8rem 0 2rem;
+  overflow: hidden;
 }
 
-.footer__container {
-    padding: 2rem 0 6rem;
+.footer-minimal__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.footer__title,
-.footer__link {
-    color: var(--title-color);
+/* 1. TOP TAG
+.footer-minimal__tag {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+} */
+
+/* 2. MAIN HEADLINE */
+.footer-minimal__headline {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--title-color);
+  margin-bottom: 4rem;
 }
 
-.footer__title {
-    text-align: center;
-    margin-bottom: var(--mb-2);
+.footer-minimal__faded {
+  opacity: 0.2;
+  font-style: italic;
 }
 
-.footer__link:hover {
-    color: var(--title-color-dark);
+/* 3. ACTION BAR */
+.footer-minimal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 6rem;
 }
 
-.footer__list {
-    display: flex;
-    justify-content: center;
-    column-gap: 1.5rem;
-    margin-bottom: var(--mb-2);
+.footer-btn {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9rem;
+  padding: 1rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
 }
 
-.footer__social {
-    display: flex;
-    justify-content: center;
-    column-gap: 1.25rem;
+/* Primary CTA Button */
+.footer-btn--primary {
+  background-color: var(--accent-color);
+  color: #ffffff; /* Explicitly white so it remains readable over accent background */
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.footer__social-link {
-    background-color: var(--title-color);
-    color: var(--container-color);
-    font-size: 1.125rem;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    display: inline-flex;
-
+.footer-btn--primary:hover {
+  filter: brightness(1.15); /* Dynamically lightens the accent color on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.footer__social-link:hover {
-    background-color: var(--title-color-dark);
+/* Secondary Outline Buttons */
+.footer-btn--outline {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid rgba(245, 243, 239, 0.15); /* Matches your existing subtle borders */
 }
 
-.footer__copy {
-    display: block;
-    margin-top: 4.5rem;
-    color:var(--title-color);
-    text-align: center;
-    font-size: var(--smaller-font-size);
+.footer-btn--outline:hover {
+  color: var(--title-color);
+  border-color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: translateY(-3px);
 }
 
-/* breakpoints */
-/* for large devices */
-@media screen and (max-width: 992px) {
-    .footer__social-link {
-        padding: 0.25rem;
-        border-radius: 0.25rem;
-        font-size: 1rem;
-    }
+/* 4. SUB-FOOTER BAR */
+.footer-minimal__bottom {
+  border-top: 1px solid rgba(245, 243, 239, 0.1); /* Matches your existing subtle borders */
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  color: var(--text-color);
+}
+
+.footer-minimal__status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e; /* Standard UI green for "online/nominal" */
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.footer-minimal__credits {
+  text-align: right;
+}
+
+/*=============== RESPONSIVE BREAKPOINTS ===============*/
+
+@media screen and (max-width: 768px) {
+  .footer-minimal {
+    padding: 6rem 0 2rem;
+  }
+
+  .footer-minimal__actions {
+    flex-direction: column;
+    margin-bottom: 4rem;
+  }
+  
+  .footer-btn {
+    width: 100%;
+    justify-content: space-between; /* Pushes arrows/icons to the far right on mobile */
+  }
+
+  .footer-minimal__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-minimal__credits {
+    text-align: left;
+  }
 }

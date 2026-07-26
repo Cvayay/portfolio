@@ -1,0 +1,62 @@
+/* =============== CUSTOM CURSOR STYLES =============== */
+
+/* Hide default mouse cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, input, textarea {
+    cursor: none !important;
+  }
+}
+
+/* Base overlay elements */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* Inner Dot */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color, #ff3366);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Outer Glowing Ring */
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--accent-color, #ff3366);
+  box-shadow: 0 0 12px rgba(255, 51, 102, 0.35);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* =============== HOVER STATES =============== */
+
+.cursor-dot.cursor--hover {
+  opacity: 0; /* Fade out dot on hover */
+}
+
+.cursor-ring.cursor--hover {
+  background-color: rgba(255, 51, 102, 0.15);
+  border-color: var(--accent-color, #ff3366);
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.6);
+}
+
+/* =============== MOBILE & TOUCH HANDLING =============== */
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  
+  body, a, button, input, textarea {
+    cursor: auto !important;
+  }
+}

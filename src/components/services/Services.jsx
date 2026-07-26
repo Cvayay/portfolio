@@ -1,177 +1,128 @@
 import React, { useState } from 'react';
-import "./services.css";
+import './services.css';
 
+const servicesData = [
+  {
+    id: 1,
+    title: 'Frontend Development',
+    subtitle: 'UI/UX • Responsive Web • React Components',
+    icon: 'uil uil-web-grid',
+    description:
+      'I build responsive interfaces that feel clear, polished, and user-friendly while staying efficient and maintainable.',
+    skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Figma'],
+    points: [
+      'Responsive interfaces for desktop and mobile screens.',
+      'Clean component architecture with thoughtful visual hierarchy.',
+      'Smooth interactions built to feel intuitive and polished.',
+      'Fast-loading pages with a strong focus on usability.',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Backend Development',
+    subtitle: 'API Design • Data Handling • Systems Architecture',
+    icon: 'uil uil-brackets-curly',
+    description:
+      'I work on application logic, data handling, and backend systems that support the product reliably and efficiently.',
+    skills: ['Node.js', 'Python', 'Java', 'MySQL', 'SQLite', 'REST APIs'],
+    points: [
+      'Reliable application logic for web and data-driven solutions.',
+      'Structured backend flows that keep products maintainable.',
+      'Database-backed features designed for real-world use.',
+      'Practical systems built with clarity and long-term stability in mind.',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Product Thinking',
+    subtitle: 'User Experience • Solution Design • Workflow Clarity',
+    icon: 'uil uil-edit',
+    description:
+      'I help shape ideas into clear solutions by focusing on usefulness, flow, and a thoughtful experience from the start.',
+    skills: ['System Design', 'User Workflows', 'Problem Solving', 'Notion'],
+    points: [
+      'Clear product framing that turns ideas into practical direction.',
+      'User-first thinking that balances usefulness with visual clarity.',
+      'Solutions shaped around flow, simplicity, and long-term value.',
+      'A collaborative approach focused on thoughtful execution.',
+    ],
+  },
+];
 
 const Services = () => {
-  const [toggleState, setToggleState] = useState(0);
+  // Store the active accordion ID; set to 1 by default (or null for all closed)
+  const [activeAccordion, setActiveAccordion] = useState(1);
 
-  const toggleTab = (index) => {
-    setToggleState(index);
-  }
+  const toggleAccordion = (id) => {
+    setActiveAccordion((prevId) => (prevId === id ? null : id));
+  };
 
   return (
     <section className="services section" id="services">
-        <h2 className="section__title">Services</h2>
-        <span className="section__subtitle">What i offer</span>
+      <h2 className="section__title">What I Do</h2>
+      <span className="section__subtitle">Ways I can help bring ideas to life</span>
 
-        <div className="services__container container grid">
-            <div className="services__content">
-              <div>
-                <i className="uil uil-web-grid services__icon"></i>
-                <h3 className="services__title">
-                Product <br /> Designer.
-                </h3>
-              </div>
+      <div className="services__accordion-container container">
+        {servicesData.map((service) => {
+          const isOpen = activeAccordion === service.id;
 
-              <span className="services__button" onClick={() => toggleTab(1)}>
-                View More
-                <i className="uil uil-arrow-right services__button-icon"></i></span>
+          return (
+            <div
+              key={service.id}
+              className={`accordion__item ${isOpen ? 'accordion__item--open' : ''}`}
+            >
+              {/* ACCORDION HEADER */}
+              <button
+                className="accordion__header"
+                onClick={() => toggleAccordion(service.id)}
+                aria-expanded={isOpen}
+              >
+                <div className="accordion__header-left">
+                  <i className={`${service.icon} accordion__icon`}></i>
+                  <div className="accordion__titles">
+                    <h3 className="accordion__title">{service.title}</h3>
+                    <span className="accordion__subtitle">{service.subtitle}</span>
+                  </div>
+                </div>
 
-              <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
-                  <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
+                <div className="accordion__toggle">
+                  <i className="uil uil-angle-down accordion__arrow"></i>
+                </div>
+              </button>
 
-                  <h3 className="services__modal-title">Product DEsigner</h3>
-                  <p className="services__modal-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita hic, excepturi itaque magni unde id illum dicta, quas ducimus modi eveniet qui odit, inventore facere sequi accusamus corrupti natus porro.</p>
+              {/* ACCORDION EXPANDABLE BODY */}
+              <div className="accordion__body">
+                <div className="accordion__content">
+                  <p className="accordion__description">{service.description}</p>
 
-                  <ul className="services__modal-services grid">
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        I Develop UI.
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Web Page Development. 
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Loading..
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                       Loading..
-                      </p>
-                    </li>
+                  <ul className="accordion__list">
+                    {service.points.map((point, idx) => (
+                      <li key={idx} className="accordion__list-item">
+                        <i className="uil uil-check-circle accordion__check-icon"></i>
+                        <span>{point}</span>
+                      </li>
+                    ))}
                   </ul>
+
+                  {/* SKILLSET & TOOLS BADGES */}
+                  <div className="accordion__skills">
+                    <span className="accordion__skills-title">Skillset & Tools</span>
+                    <div className="accordion__badges">
+                      {service.skills.map((skill, idx) => (
+                        <span key={idx} className="accordion__badge">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="services__content">
-              <div>
-                <i className="uil uil-arrow services__icon"></i>
-                <h3 className="services__title">Mobile App <br /> Developer.
-                </h3>
-              </div>
-
-              <span onClick={() => toggleTab(2)} className="services__button">
-                View More 
-                <i className="uil uil-arrow-right services__button-icon"></i>
-                </span>
-
-              <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
-                  <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
-
-                  <h3 className="services__modal-title">Mobile Application Development</h3>
-                  <p className="services__modal-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita hic, excepturi itaque magni unde id illum dicta, quas ducimus modi eveniet qui odit, inventore facere sequi accusamus corrupti natus porro.</p>
-
-                  <ul className="services__modal-services grid">
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        I Develop UI.
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Web Page Development. 
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Loading..
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                       Loading..
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="services__content">
-              <div>
-                <i className="uil uil-edit services__icon"></i>
-                <h3 className="services__title">UI/UX <br /> Designer
-                </h3>
-              </div>
-
-              <span onClick={() => toggleTab(3)} className="services__button">
-                View More 
-                <i className="uil uil-arrow-right services__button-icon"></i></span>
-
-              <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
-                  <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"></i>
-
-                  <h3 className="services__modal-title">Ui ux Development</h3>
-                  <p className="services__modal-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita hic, excepturi itaque magni unde id illum dicta, quas ducimus modi eveniet qui odit, inventore facere sequi accusamus corrupti natus porro.</p>
-
-                  <ul className="services__modal-services grid">
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        I Develop UI.
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Web Page Development. 
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                        Loading..
-                      </p>
-                    </li>
-
-                    <li className="services__modal-service">
-                      <i className="uil uil-check-circle services__modal-icon"></i>
-                      <p className="services__modal-info">
-                       Loading..
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-        </div>
+          );
+        })}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default  Services
+export default Services;

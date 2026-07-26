@@ -1,64 +1,49 @@
 import React from 'react';
 import "./home.css";
 import Social from './Social';
-// import homeData from '../home/Data'; // This is your UI component (Data.jsx)
-import ScrollDown from './ScrollDown';
-import { homeData, navLinks } from './Data'; // This is your info from src/data.jsx
-
-// Import your images - ensure these exist in src/assets/
-import ChildPhoto from "../../assets/me-child.jpg"; 
-import CurrentPhoto from "../../assets/me-current.jpg";
+import { homeData } from './Data';
 
 const Home = () => {
   return (
     <section className="home section" id='home'>
-      <div className="home__container container grid">
-        <div className="home__content grid">
-          {/* 1. Social Links (Sidebar) */}
+      <div className="home__container container">
+        <div className="home__content">
           <Social />
 
-            <div className="home__data">
-                <h1 className="home__title">{homeData.firstName} {homeData.lastName}</h1>
-                <h3 className="home__subtitle">{homeData.subtitle}</h3>
-                <p className="home__description">{homeData.description}</p>
-                <a href="#contact" className="button button--flex">Say Hello</a>
-            </div>
-
-          {/* 3. The Interactive Collage (Right Side) */}
-          <div className="home__collage">
-            {/* Background decorative glow */}
-            <div className="collage__blob"></div>
-
-            {/* Childhood Polaroid */}
-            <div className="collage__card card--small">
-              <img src={ChildPhoto} alt="Childhood" className="collage__img" />
-              <span className="collage__caption">
-                {homeData.captions.childhood}
-              </span>
-            </div>
-
-            {/* Current Polaroid */}
-            <div className="collage__card card--large">
-              <img src={CurrentPhoto} alt="Current" className="collage__img" />
-              <span className="collage__caption">
-                {homeData.captions.current}
-              </span>
-            </div>
-
-            {/* Handwritten Floating Notes */}
-            {homeData.notes && homeData.notes.map((note, index) => (
-              <div key={index} className={`floating__note note--${note.position}`}>
-                {note.text}
+          <div className="home__data">
+            <span className="home__greeting">{homeData.greeting}</span>
+            <h1 className="home__title">{homeData.firstName} {homeData.lastName}</h1>
+            
+            {/* ROTATING ROLE TICKER */}
+            <div className="home__ticker-wrapper">
+              <div className="home__ticker">
+                {homeData.roles.concat(homeData.roles[0]).map((role, idx) => (
+                  <span key={idx} className="home__ticker-item">{role}</span>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <p className="home__tagline">{homeData.tagline}</p>
+            <p className="home__description">{homeData.description}</p>
+
+            <div className="home__stats">
+              {homeData.stats.map((stat) => (
+                <div className="home__stat" key={stat.label}>
+                  <span className="home__stat-value">{stat.value}</span>
+                  <span className="home__stat-label">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="home__buttons">
+              <a href="#contact" className="button button--flex">Let’s talk</a>
+              <a href="#portfolio" className="button button--flex button--ghost">View projects</a>
+            </div>
           </div>
         </div>
-
-        {/* 4. Scroll Down Indicator & Status Badge */}
-        <ScrollDown />
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Home;
