@@ -5,46 +5,32 @@ const Footer = () => {
   return (
     <footer className="footer-minimal">
       <div className="footer-minimal__container container">
-        
-        {/* TOP TAG */}
-        {/* <div className="footer-minimal__tag">
-          // Available for global roles / Probably tweaking this footer again
-        </div> */}
-
-        {/* MAIN HEADLINE */}
         <h2 className="footer-minimal__headline">
-          That's the work.<br />
-          Here's the <span className="footer-minimal__faded">awkward</span><br />
-          reaching out part.
+          Have a project in mind?<br />
+          Let’s make something <span className="footer-minimal__faded">useful.</span>
         </h2>
 
-        {/* ACTION BAR */}
         <div className="footer-minimal__actions">
           <a href="mailto:shivajisahani01@gmail.com" className="footer-btn footer-btn--primary">
-            Drop an Email
-          </a>
-          <a href="/Shivaji_Sahani_CV.docx" download className="footer-btn footer-btn--outline">
-            Download resume ↓
+            Email me ↗
           </a>
           <a href="https://github.com/Cvayay" target="_blank" rel="noreferrer" className="footer-btn footer-btn--outline">
             GitHub ↗
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="footer-btn footer-btn--outline">
+          <a href="https://www.linkedin.com/in/shivaji-sahani-940784223" target="_blank" rel="noreferrer" className="footer-btn footer-btn--outline">
             LinkedIn ↗
           </a>
         </div>
 
-        {/* SUB-FOOTER BAR */}
         <div className="footer-minimal__bottom">
           <div className="footer-minimal__status">
             <span className="status-dot"></span>
-            <span>Online</span>
+            <span>Based in India</span>
           </div>
           <div className="footer-minimal__credits">
-            Built by Shivaji | No templates were harmed.
+            Built by Shivaji Sahani.
           </div>
         </div>
-
       </div>
     </footer>
   );
