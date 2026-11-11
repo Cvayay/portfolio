@@ -1,5 +1,5 @@
 {
-  "homepage": "http://cvayay.github.io/shivay-portfolio",
+  "homepage": "https://cvayay.github.io/portfolio",
   "name": "personal",
   "version": "0.1.0",
   "private": true,
@@ -37,8 +37,7 @@
     ],
     "development": [
       "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 firefox version"
     ]
   },
   "devDependencies": {
