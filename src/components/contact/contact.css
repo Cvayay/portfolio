@@ -1,0 +1,49 @@
+.contact-section {
+  padding: 5rem 0;
+}
+
+.contact-section__container {
+  max-width: 760px;
+  text-align: center;
+}
+
+.contact-section__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  opacity: .65;
+}
+
+.contact-section__title {
+  margin: 0 auto 1rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.12;
+}
+
+.contact-section__copy {
+  max-width: 560px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.75;
+  opacity: .75;
+}
+
+.contact-section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: .35rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-section__link span {
+  transition: transform .2s ease;
+}
+
+.contact-section__link:hover span {
+  transform: translate(3px, -3px);
+}
